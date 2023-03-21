@@ -39,6 +39,7 @@ import {Form} from 'react-router-dom'
 import Section from './components/Section.jsx'
 import Avatar from './components/Avatar.jsx'
 import Textarea from './components/Textarea.jsx'
+import DisplayPost from './components/DisplayPost.jsx'
 
 export async function action({ request }) {
 	const formData = await request.formData()
@@ -65,24 +66,3 @@ function PostInput() {
 		</Form>
 	</Section>
 }
-
-function DisplayPost({ post }) {
-	return <Section>
-		<div className="flex gap-4">
-			<Avatar src={post.user.avatar} alt={post.user.username} />
-			<div className="space-y-6">
-				<hgroup>
-					<h5 className="font-semibold text-xl">{post.user.username}</h5>
-					<p className="text-gray-500">{formatDate(post.created_at)}</p>
-				</hgroup>
-				<p>{post.content}</p>
-				<div className="grid grid-cols-2">
-					<button className="btn btn-ghost">like</button>
-					<button className="btn btn-ghost">comments</button>
-				</div>
-			</div>
-		</div>
-	</Section>
-}
-
-const formatDate = (unixEpochMili) => new Intl.DateTimeFormat("en", {timeStyle: "medium", dateStyle: "short"}).format(unixEpochMili)

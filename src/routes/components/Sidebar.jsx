@@ -8,10 +8,10 @@ export default function Sidebar() {
 			<SidebarLink to="/" >
 				<IconHome2 size={32} />
 			</SidebarLink>
-			<SidebarLink to="friends">
+			<SidebarLink to="search">
 				<IconSearch size={32}/>
 			</SidebarLink>
-			<SidebarLink to="search">
+			<SidebarLink to="friends">
 				<IconUsers size={32} />
 			</SidebarLink>
 			<SidebarLink to="profile">
