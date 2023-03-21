@@ -6,10 +6,11 @@ import './index.css'
 
 // routes
 import Root from './routes/root.jsx'
-import Login from './routes/login.jsx'
+import Login, { action as loginAction } from './routes/login.jsx'
 import Friends from './routes/friends.jsx'
 import Search from './routes/search.jsx'
-import Home from './routes/home.jsx'
+import Home, {action as homeAction} from './routes/home.jsx'
+import Profile from './routes/profile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,14 +26,20 @@ const router = createBrowserRouter([
         element: <Search/>,
       },
       {
+        path: 'profile',
+        element: <Profile/>,
+      },
+      {
         index: true,
-        element: <Home/>
+        element: <Home/>,
+        action: homeAction,
       }
     ]
   },
   {
     path: '/login',
     element: <Login/>,
+    action: loginAction,
   }
 ])
 

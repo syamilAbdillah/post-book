@@ -1,12 +1,20 @@
+import { useState } from 'react'
 import { Form } from 'react-router-dom'
 import TextInput from './components/TextInput.jsx'
 import Toggle from './components/Toggle.jsx'
 
+export async function action({ request }) {
+	const formData = await request.formData()
+	console.log(Object.fromEntries(formData))
+	return null
+}
+
 export default function Login() {
+	const [show, setShow] = useState(false)
 	return <PageLayout>
 		<FormCard>
 			<h2 className="text-3xl font-black text-center">login</h2>
-			<Form className="grid gap-6">
+			<Form className="grid gap-6" method="post">
 				<TextInput
 					name="username"
 					placeholder="username"
@@ -17,9 +25,9 @@ export default function Login() {
 					name="password"
 					placeholder="password"
 					label="password"
-					type="password"
+					type={show ? "text":"password"}
 				/>
-				<Toggle onChange={ev => console.log(ev.currentTarget.checked)} label="show password" />
+				<Toggle value={show} onChange={ev => setShow(ev.currentTarget.checked)} label="show password" />
 				<div className="flex justify-end gap-2">
 					<button type="submit" className="btn btn-primary">login</button>
 				</div>

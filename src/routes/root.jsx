@@ -4,10 +4,14 @@ import Sidebar from './components/Sidebar.jsx'
 export default function Root() {
 	return <>
 		<Sidebar/>
-		<main className="main-content">
+		<Main>
 			<Outlet/>
-		</main>
+		</Main>
 	</>
 }
+
+const Main = ({ children, ...rest }) => <main className="min-h-screen ml-20">
+	{children}
+</main>
 
 
