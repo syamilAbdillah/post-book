@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@mantine/hooks': ^6.0.4
   '@tabler/icons-react': ^2.10.0
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
@@ -15,6 +16,7 @@ specifiers:
   vite: ^4.2.0
 
 dependencies:
+  '@mantine/hooks': 6.0.4_react@18.2.0
   '@tabler/icons-react': 2.10.0_react@18.2.0
   daisyui: 2.51.4_j7yt3jd32cwenjqavrrga47yr4
   react: 18.2.0
@@ -229,6 +231,14 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@mantine/hooks/6.0.4_react@18.2.0:
+    resolution: {integrity: sha512-rG+P18vOJcMQGo/3XAzR3f7rtmzjuccTIc10I9F2J49cRKem4wQZQdYeA8Wnxx95SRmVTQtf2hYXjbUliqgmAA==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}

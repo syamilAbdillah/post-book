@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mantine/hooks": "^6.0.4",
     "@tabler/icons-react": "^2.10.0",
     "daisyui": "^2.51.4",
     "react": "^18.2.0",
