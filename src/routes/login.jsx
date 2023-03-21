@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { Form } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Form, useNavigate } from 'react-router-dom'
 import TextInput from './components/TextInput.jsx'
 import Toggle from './components/Toggle.jsx'
+import { useAuth } from './context/authContext.jsx'
 
 export async function action({ request }) {
 	const formData = await request.formData()
@@ -11,10 +12,14 @@ export async function action({ request }) {
 
 export default function Login() {
 	const [show, setShow] = useState(false)
+	const handleSubmit = ev => {
+		ev.preventDefault()
+	}
+
 	return <PageLayout>
 		<FormCard>
 			<h2 className="text-3xl font-black text-center">login</h2>
-			<Form className="grid gap-6" method="post">
+			<form className="grid gap-6" onSubmit={handleSubmit}>
 				<TextInput
 					name="username"
 					placeholder="username"
@@ -31,7 +36,7 @@ export default function Login() {
 				<div className="flex justify-end gap-2">
 					<button type="submit" className="btn btn-primary">login</button>
 				</div>
-			</Form>
+			</form>
 		</FormCard>
 	</PageLayout>
 }

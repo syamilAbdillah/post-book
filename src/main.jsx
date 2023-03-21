@@ -4,8 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import './index.css'
 
+import { AuthProvider, useAuth } from './routes/context/authContext.jsx'
+
 // routes
-import Root from './routes/root.jsx'
+import Root, { loader as rootLoader } from './routes/root.jsx'
 import Login, { action as loginAction } from './routes/login.jsx'
 import Friends from './routes/friends.jsx'
 import Search from './routes/search.jsx'
@@ -16,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Root/>,
+    loader: rootLoader,
     children: [
       {
         path: 'friends',
@@ -43,8 +46,20 @@ const router = createBrowserRouter([
   }
 ])
 
+function App() {
+  const {user} = useAuth()
+
+  if(!user) {
+    return <Login/>
+  }
+
+  return <RouterProvider router={router} />
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <App/>
+    </AuthProvider>
   </React.StrictMode>,
 )
