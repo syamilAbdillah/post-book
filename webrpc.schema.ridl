@@ -1,0 +1,42 @@
+webrpc = v1
+
+name = post-book
+version = v0.0.1
+
+struct User
+  - id: string
+  - username: string
+  - name: string
+  - avatar: string
+  - created: int64
+
+struct UserData
+  - username: string
+  - name: string
+
+struct Credentials
+  - username: string
+  - password: string
+
+struct Post
+  - id: string
+  - userId: string
+  - content: string
+  - created: int64
+  - updated?: int64
+
+struct PostUser
+  - post: Post
+  - user: User
+
+
+service UserService
+  - Login(credentials: Credentials) => (user: User)
+  - Register(data: UserData) => (user: User, errors: map<string, string>)
+  - IsAuthenticated() => (user: User)
+
+service PostService
+  - CreatePost(content: string) => (errors: map<string, string>)
+  - UpdataPost(post: Post) => (errors: map<string, string>) 
+  - PostsOfUser(userId: string) => (user: User, posts: []Post)
+  - POstsFeed() => (posts: []PostUser)
