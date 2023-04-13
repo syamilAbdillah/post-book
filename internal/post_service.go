@@ -6,7 +6,16 @@ import (
 	"github.com/syamilAbdillah/post-book/pkg/webrpc"
 )
 
-type PostService struct {}
+type PostService struct {
+	dal PostDAL
+}
+
+type PostDAL interface {
+	PostsInsert(ctx context.Context, post *webrpc.Post) error
+	PostsFeed(ctx context.Context) ([]*webrpc.PostUser, error)
+	PostsByUserID(ctx context.Context, id string) ([]*webrpc.PostUser, error)
+	PostUpdate(ctx context.Context, post *webrpc.Post) error
+}
 
 func NewPostService() *PostService {
 	return &PostService{}

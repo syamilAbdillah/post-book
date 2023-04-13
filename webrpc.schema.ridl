@@ -38,5 +38,5 @@ service UserService
 service PostService
   - CreatePost(content: string) => (errors: map<string, string>)
   - UpdataPost(post: Post) => (errors: map<string, string>) 
-  - PostsOfUser(userId: string) => (user: User, posts: []Post)
+  - PostsOfUser(userId: string) => (posts: []PostUser)
   - POstsFeed() => (posts: []PostUser)

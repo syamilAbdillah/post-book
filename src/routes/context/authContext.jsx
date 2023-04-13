@@ -13,10 +13,6 @@ export function AuthProvider({ children }) {
 	const authenticating = async () => {
 		await delay(2000)
 
-		if(Math.random() < 0.5) {
-			return {id: 'somerandomid'}
-		}
-
 		return undefined
 	}
 

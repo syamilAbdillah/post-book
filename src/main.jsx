@@ -8,7 +8,7 @@ import { AuthProvider, useAuth } from './routes/context/authContext.jsx'
 
 // routes
 import Root, { loader as rootLoader } from './routes/root.jsx'
-import Login, { action as loginAction } from './routes/login.jsx'
+import Login from './routes/login.jsx'
 import Friends from './routes/friends.jsx'
 import Search from './routes/search.jsx'
 import Home, {action as homeAction} from './routes/home.jsx'
@@ -38,11 +38,6 @@ const router = createBrowserRouter([
         action: homeAction,
       }
     ]
-  },
-  {
-    path: '/login',
-    element: <Login/>,
-    action: loginAction,
   }
 ])
 
